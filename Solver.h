@@ -12,6 +12,7 @@ public:
     bool isValid(int x, int y, int val);
     bool dfs(int i, int j);
     Solver(){
+        readFromfile();
         board = readBoard();
     }
 };

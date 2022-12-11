@@ -31,6 +31,7 @@ void Board::readFromfile() {
 }
 
 void Board::printBoard() {
+    std::cout<<"======Print Board======\n";
     for(auto &grid: grids){
         for(auto &cell : grid){
             std::cout << cell <<" ";

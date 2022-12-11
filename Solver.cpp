@@ -21,8 +21,23 @@ bool Solver::isValid(int x, int y, int val) {
                 return false;
         }
     }
+    return true;
 }
 
-bool Solver::dfs(int i, int k) {
-
+bool Solver::dfs(int i, int j) {
+    if (i == 9)
+        return true;
+    if (j >= 9)
+        return dfs(i + 1, 0);
+    if ((*board)[i][j] != 0)
+        return dfs(i, j + 1);
+    for (int c = 1; c <= 9; ++c) {
+        if (!isValid(i , j, c))
+            continue;
+        (*board)[i][j] = c;
+        if (dfs(i,j + 1))
+            return true;
+        (*board)[i][j] = 0;
+    }
+    return false;
 }
